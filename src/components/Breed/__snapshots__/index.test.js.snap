@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Breed Breed renders correctly when there is no subbreeds 1`] = `
+<div
+  className="container"
+>
+  <h1
+    className="breedName"
+  >
+    testName
+  </h1>
+  <img
+    alt="testName"
+    className="image"
+    src="testImage"
+  />
+  <p>
+    testText
+  </p>
+</div>
+`;
+
+exports[`Breed Breed renders correctly when there is subbreeds 1`] = `
+<div
+  className="container"
+>
+  <h1
+    className="breedName"
+  >
+    testName
+  </h1>
+  <div
+    className="subBreeds"
+  >
+    <div
+      className="subBreed"
+    >
+      <h2
+        className="subBreedName"
+      >
+        testSubName1
+      </h2>
+      <img
+        alt="testSubName1"
+        className="image"
+        src="testSubImage1"
+      />
+    </div>
+    <div
+      className="subBreed"
+    >
+      <h2
+        className="subBreedName"
+      >
+        testSubName2
+      </h2>
+      <img
+        alt="testSubName2"
+        className="image"
+        src="testSubImage2"
+      />
+    </div>
+  </div>
+  <p>
+    testText
+  </p>
+</div>
+`;

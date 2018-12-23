@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App render data correctly 1`] = `
+<div>
+  <Breed
+    data={
+      Object {
+        "image": "testImage1",
+        "name": "testName1",
+      }
+    }
+    key="testName1"
+  />
+</div>
+`;
+
+exports[`App render error correctly 1`] = `
+<div>
+  error
+</div>
+`;
+
+exports[`App render loading correctly 1`] = `
+<div
+  className="loading"
+>
+  Loading...
+</div>
+`;
+
+exports[`App render loading correctly 2`] = `
+<div
+  className="loading"
+>
+  Loading...
+</div>
+`;
