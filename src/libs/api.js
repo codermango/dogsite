@@ -7,7 +7,7 @@ export function getAllBreeds() {
     fetch(url)
       .then(res => res.json())
       .then(res => resolve(res.message))
-      .catch(err => reject(err));
+      .catch(err => reject(err.message));
   });
 };
 
@@ -17,7 +17,7 @@ export function getImageByBreed(breed) {
     fetch(url)
       .then(res => res.json())
       .then(res => resolve(res.message))
-      .catch(err => reject(err));
+      .catch(err => reject(err.message));
   });
 }
 
@@ -27,7 +27,7 @@ export function getImageBySubBreed(breed, subBreed) {
     fetch(url)
       .then(res => res.json())
       .then(res => resolve(res.message))
-      .catch(err => reject(err));
+      .catch(err => reject(err.message));
   });
 }
 
@@ -37,7 +37,7 @@ export function getRandomText() {
     fetch(url)
       .then(res => res.json())
       .then(res => resolve(res[0]))
-      .catch(err => reject(err));
+      .catch(err => reject(err.message));
   });
 }
 

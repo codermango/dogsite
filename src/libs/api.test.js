@@ -23,7 +23,7 @@ describe('api test', () => {
         });
       })
     })
-    .mockImplementationOnce(() => Promise.reject('error'));
+    .mockImplementationOnce(() => Promise.reject({ message: 'error' }));
     
     expect.assertions(2);
     const expected = {
@@ -59,7 +59,7 @@ describe('api test', () => {
         });
       })
     })
-    .mockImplementationOnce(() => Promise.reject('error'));
+    .mockImplementationOnce(() => Promise.reject({ message: 'error' }));
     expect.assertions(2);
 
     const expected = 'image_url';
@@ -88,7 +88,7 @@ describe('api test', () => {
         });
       })
     })
-    .mockImplementationOnce(() => Promise.reject('error'));
+    .mockImplementationOnce(() => Promise.reject({ message: 'error' }));
     expect.assertions(2);
 
     const expected = 'image_url';
@@ -114,7 +114,7 @@ describe('api test', () => {
         });
       })
     })
-    .mockImplementationOnce(() => Promise.reject('error'));
+    .mockImplementationOnce(() => Promise.reject({ message: 'error' }));
     expect.assertions(2);
 
     const expected = 'test_text';

@@ -26,7 +26,6 @@ describe('App', () => {
   it('render data correctly', () => {
     const state = { data: [{ name: 'testName1', image: 'testImage1' }], error: null, isLoading: false }
     const component = shallow(<App />);
-    console.log(component.props().children(state))
     const childrenComp = shallow(component.props().children(state));
     expect(toJson(childrenComp)).toMatchSnapshot();
   });

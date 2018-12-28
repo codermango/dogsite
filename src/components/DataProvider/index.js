@@ -18,41 +18,24 @@ class DataProvider extends Component {
     };
   }
 
-  breedPromise(breed) {
+  async breedPromise(breed) {
 
     const formatedBreed = {
       name: breed.name
     };
 
-    return new Promise((resolve, reject) => {
+    if (breed.subBreeds.length > 0) {
+      const subBreedPromises = breed.subBreeds.map(async (subBreed) => {
+        const image = await getImageBySubBreed(breed.name, subBreed).catch((err) => err);
+        return { name: subBreed, image: image };
+      });
+      formatedBreed.subBreeds = await Promise.all(subBreedPromises).catch((err) => err);
+    } else {
+      formatedBreed.image = await getImageByBreed(breed.name).catch((err) => err);
+    }
+    formatedBreed.text = await getRandomText().catch((err) => err);
 
-      if (breed.subBreeds.length > 0) {
-        const subBreedPromises = breed.subBreeds.map((subBreed) => {
-          return new Promise((resolve, reject) => {
-            getImageBySubBreed(breed.name, subBreed)
-              .then(res => resolve({ name: subBreed, image: res }))
-              .catch(err => reject(err));
-          });
-        });
-
-        Promise.all(subBreedPromises)
-          .then(res => { formatedBreed.subBreeds = res; })
-          .catch(err => reject(err));
-
-      } else {
-        getImageByBreed(breed.name)
-          .then(res => { formatedBreed.image = res; })
-          .catch(err => reject(err));
-      }
-
-      getRandomText()
-        .then(res => {
-          formatedBreed.text = res;
-          resolve(formatedBreed)
-        })
-        .catch(err => reject(err));
-
-    });
+    return formatedBreed;
   }
 
   async formatData() {
